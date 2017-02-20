@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Graph2d | Bar Graph Example</title>
+
+    <style type="text/css">
+        body, html {
+            font-family: sans-serif;
+        }
+    </style>
+
+    <script src="../../dist/vis-timeline-graph2d.min.js"></script>
+    <link href="../../dist/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
+    </head>
+<body>
+<h2>Graph2d | Bar Graph Example</h2>
+<div style="width:700px; font-size:14px; text-align: justify;">
+    fff example shows the most the same data as the first example, except we plot the data as bars! The
+    dataAxis (y-axis) icons have been enabled as well. These icons are generated automatically from the CSS
+    styling of the graphs. Finally, we've used the option from Timeline where we draw the x-axis (time-axis) on top.
+    <br /><br />
+    The <code>align</code> option can be used to align the bar at the center of the datapoint or on the left or right side of it.
+    This example uses the default center alignment.
+</div>
+<br />
+
+<div id="visualization"></div>
+
+<script type="text/javascript">
+
+	var container = document.getElementById('visualization');
+	var items = [
+		{x: '06/11/2014', y: 5, startDate: '06/11/2014', endDate: '06/13/2014', startVal: 80, endVal: 120},
+		{x: '06/12/2014', y: 0, startDate: '06/14/2014', endDate: '06/16/2014', startVal: 30, endVal: 100},
+		{x: '06/13/2014', y: 30, startDate: '06/17/2014 15:25:10:500', endDate: '06/25/2014', startVal: 75, endVal: 160}
+//		{x: '06/14/2014', y: 10, startDate: '06/13/2014', endDate: '06/25/2014', startVal: 15, endVal: 40},
+//		{x: '06/15/2014', y: 15, startDate: '06/19/2014', endDate: '07/17/2014', startVal: 10, endVal: 50},
+//		{x: '06/16/2014', y: 30, startDate: '06/28/2014', endDate: '08/25/2014', startVal: 5, endVal: 15}
+	];
+
+	var dataset = new vis.DataSet(items);
+	var options = {
+		style:'box',
+		barChart: {width:50, align:'center'}, // align: left, center, right
+		drawPoints: false,
+		dataAxis: {
+			icons:true
+		},
+		orientation:'both',
+		start: '2014-06-10',
+		end: '2014-06-18'
+	};
+	var graph2d = new vis.Graph2d(container, items, options);
+
+</script>
+</body>
+</html>
